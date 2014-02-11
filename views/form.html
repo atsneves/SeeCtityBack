@@ -1,0 +1,64 @@
+<h3>Inclusão / Alteração de XML</h3>
+
+<div>
+<form action="/createXml"  method="post" name="files" enctype="multipart/form-data" class="form-horizontal">
+  <fieldset>
+    <legend>Inclus&atilde;o/Edi&ccedil;&atilde;o de usuário</legend>
+    <%if (typeof param !== 'undefined'){ %>
+    
+    	
+    	<label>Arquivo XML</label>
+    	<input type="file" id="xml" name="xml" class="input-xxlarge" placeholder="Descrição"  size="100">
+    	
+    	
+    <% } else { %>
+    
+	    <label>Arquivo XML</label>
+	    <input type="file" id="xml" name="xml" class="input-xxlarge" placeholder="Descrição"  size="100">
+    <% } %>
+    
+    <button type="submit" class="btn btn-primary">Salvar</button>
+  </fieldset>
+</form>
+
+
+</div>
+<!-- JQUERY -->
+ <!-- Placed at the end of the document so the pages load faster -->
+    <!-- JQUERY -->
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="/js/jquery-1.7.1.min.js"><\/script>')</script>
+    <script src="/assets/js/bootstrap-transition.js"></script>
+    <script src="/assets/js/bootstrap-alert.js"></script>
+    <script src="/assets/js/bootstrap-modal.js"></script>
+    <script src="/assets/js/bootstrap-dropdown.js"></script>
+    <script src="/assets/js/bootstrap-scrollspy.js"></script>
+    <script src="/assets/js/bootstrap-tab.js"></script>
+    <script src="/assets/js/bootstrap-tooltip.js"></script>
+    <script src="/assets/js/bootstrap-popover.js"></script>
+    <script src="/assets/js/bootstrap-button.js"></script>
+    <script src="/assets/js/bootstrap-collapse.js"></script>
+    <script src="/assets/js/bootstrap-carousel.js"></script>
+    <script src="/assets/js/bootstrap-typeahead.js"></script>
+	<script type="text/javascript" src="/js/scripts.js"></script>
+    <script type="text/javascript" src="/js/jquery.form.js"></script>
+    <script type="text/javascript" src="/js/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="/js/jquery.maskedinput.min.js"></script>
+        
+
+<script>
+	jQuery(function($){
+	      $('form').validate({
+	        rules:{
+	            xml:{required: true}
+	        },
+	
+	        messages:{
+	            xml:{required: "Preencha o campo XML"}
+	        }
+        }); 	
+	      
+	       	
+	});
+
+</script>

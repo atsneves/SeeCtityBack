@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<aprovador id="sdk123">
+	<item>
+		<titulo>Teste</titulo>
+		<email>atsneves@gmail.com</email>
+		<tipo>atsneves@gmail.com</tipo>
+		<dados>atsneves@gmail.com</dados>
+		<data>Mon, 27 Jan 2014 01:39:11 -0300</data>
+	</item>
+	<item>
+		<titulo>Teste 123</titulo>
+		<email>atsneves@gmail.com</email>
+		<tipo>atsneves@gmail.com</tipo>
+		<dados>atsneves@gmail.com</dados>
+		<data>Mon, 27 Jan 2014 00:39:11 -0300</data>
+	</item>
+	
+	<item>
+		<titulo>Teste 555</titulo>
+		<email>atsneves@gmail.com</email>
+		<tipo>atsneves@gmail.com</tipo>
+		<dados>atsneves@gmail.com</dados>
+		<data>Sun, 26 Jan 2014 23:39:11 -0300</data>
+	</item>
+</aprovador>

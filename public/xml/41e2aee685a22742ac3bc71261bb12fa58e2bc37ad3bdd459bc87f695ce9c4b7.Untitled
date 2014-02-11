@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<aprovador id="sdk123">
+	<item>
+		<titulo>Teste</titulo>
+		<email>atsneves@gmail.com</email>
+		<tipo>COMPRA</tipo>
+		<dados>IO7Rirb59r5ITcVo4ydScSCe9WCYwRU1Iyuq86tM0uw=</dados>
+	</item>
+	<item>
+		<titulo>Teste 123</titulo>
+		<email>atsneves@gmail.com</email>
+		<tipo>VENDA</tipo>
+		<dados>+7zL+hQs8oaoODkovjHdGnOrhq+pltXAkBcuBxR3MTg=</dados>
+	</item>
+	
+	<item>
+		<titulo>Teste 555</titulo>
+		<email>atsneves@gmail.com</email>
+		<tipo>ATACADO</tipo>
+		<dados>FkQMATdC7NfPRIRd7z/mDNmBHcar52KFfji6lFCDYDYe/lrNyTynwhx2RytmcDOAVCyAanr3je+NgTNMygW7gglkvTuYnVFFSJrW4Viad+w=</dados>
+	</item>
+</aprovador>
