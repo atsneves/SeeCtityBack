@@ -536,7 +536,7 @@ app.post("/listaCrime",function(req,res,next){
 	var ordernacao = {data:-1};
 	if(pOrder == "PROX")
 	{
-		var ordernacao = {$maxDistance:-1};
+		var ordernacao = {$maxDistance:1};
 	}
 	else if(pOrder == "CATEGORIA")
 	{
