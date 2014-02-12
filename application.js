@@ -531,6 +531,24 @@ app.post("/listaCrime",function(req,res,next){
 	
 	var pCenterLatitude = req.body.latitude;
 	var pCenterLongitude = req.body.longitude;
+	var pOrder = req.body.order;
+	
+	var ordernacao = {data:-1};
+	if(pOrder == "PROX")
+	{
+		var ordernacao = {$maxDistance:-1};
+	}
+	else if(pOrder == "CATEGORIA")
+	{
+		var ordernacao = {categoria:1};
+	}
+	else
+	{
+		var ordernacao = {data:-1};
+	}
+		
+	
+	
 	var pRadiusInKM = 5;
 	var EARTH_RADIUS = 6371;
 	var geoQuery = {
@@ -545,7 +563,7 @@ app.post("/listaCrime",function(req,res,next){
 
 	};
 	
-	DbCrime.find(geoQuery).sort({data:-1}).exec(function (err, listaCrime) {
+	DbCrime.find(geoQuery).sort(ordernacao).exec(function (err, listaCrime) {
 		if(!err)
 		{
 			res.json(listaCrime);
