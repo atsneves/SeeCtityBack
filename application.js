@@ -578,8 +578,8 @@ app.post("/listaCrime",function(req,res,next){
 	
 });
 app.get("/countCommentByCrime/:cr",function(req,res,next){
-	
-	DbComentario.count({crime:req.param.cr},function(er,co){
+	console.log(req.params.cr);
+	DbComentario.count({crime:req.params.cr},function(er,co){
 		if(!er)
 			res.json(co);
 		else
@@ -601,6 +601,7 @@ app.post("/addComent",function(req,res,next){
 		comentario.data = unsafeToday;
 		comentario.comentario = req.body.comentario;
 		comentario.crime = req.body.crime;
+		comentario.usuario = req.body.usuario;
 		comentario.save(function(err,salvo){
 			
 			if(!err)
