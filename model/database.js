@@ -9,6 +9,9 @@ var TABLE_CADASTRO = "Cadastro";
 var TABLE_DEVICE = "Device";
 var TABLE_LOG_EROO = "Erro";
 var TABLE_CRIME = "Crime";
+var TABLE_COMMENT = "Comentario";
+
+
 
 var enumTipo = ["ADMIN_GERAL", "USER"];
 var enumSituacao = ["INATIVO", "ATIVO"];
@@ -41,7 +44,15 @@ var CrimeSchema = new Schema ({
 	descricao: {type: String},
 	localizacao: {type: [Number], index: "2d"},
 	usuario:{type: String, required: true},
-	data: {type: Date,default: Date.now}
+	data: {type: Date,default: Date.now},
+	agradecimento: {type:Number, default:0}
+});
+
+var ComentarioSchema = new Schema ({
+	usuario:{type: String, required: true},
+	data: {type: Date,default: Date.now},
+	comentario: {type: String, required:true}
+	crime: {type: String, required:true}
 });
 
 var LogErroSchema = new Schema ({
@@ -53,6 +64,9 @@ var LogErroSchema = new Schema ({
 
 mongoose.model(TABLE_LOG_EROO, LogErroSchema);
 exports.LogErro = mongoose.model(TABLE_LOG_EROO);
+
+mongoose.model(TABLE_COMMENT, ComentarioSchema);
+exports.Comentario = mongoose.model(ComentarioSchema);
 
 
 mongoose.model(TABLE_CADASTRO, CadastroSchema);

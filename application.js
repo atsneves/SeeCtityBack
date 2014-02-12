@@ -12,7 +12,7 @@ var datejs = require('safe_datejs');
 var tLog = database.LogErro;
 var DbDevice = database.Device;
 
-
+var DbComentario = databease.Comentario;
 var DbCrime = database.Crime;
 var mongoose = require("mongoose");
 
@@ -558,11 +558,83 @@ app.post("/listaCrime",function(req,res,next){
 	
 });
 
+app.post("/addComent",function(req,res,next){
+	
+	if(req.body.crime)
+	{
+		var comentario = new DbComentario();
+		comentario.usuario = req.body.usuario;
+		
+		var today = new Date();
+		var unsafeToday = today.AsDateJs(); 
+		comentario.data = unsafeToday;
+		comentario.comentario = req.body.comentario;
+		comentario.crime = req.body.crime;
+		comentario.save(function(err,salvo){
+			
+			if(!err)
+			{
+				res.json(salvo);
+				
+			}
+			else
+			{
+				res.json(err);
+			}
+			
+		})
+		
+	}
+	
+});
+
+app.post("/listComment",function(req,res,next){
+	
+	
+	if(req.body.crime)
+	{
+		DbComentario.find({crime:req.body.crime}).sort({data:-1}).exec(function (err, listaComment){
+			
+			if(!err)
+				res.json(listaComment);
+			else
+				res.json(err);
+		});
+	}
+	
+});
+
+app.post("addAgradecer",function(req,res,next){
+	
+	if(req.body.crime)
+	{
+		DbCrime.findOne({email : req.body.email}, function(err, crime){
+			
+			if(!err)
+			{
+				crime.agradecer = crime.agradecer + 1;
+				crime.save(function(erro,salvo){
+					if(!erro)
+						res.json(salvo);
+					else
+						res.json(erro);
+				});
+				
+			}
+			else
+				res.json(err);
+		});
+	}
+	
+});
+
 app.configure("development",function(){
 	app.use(express.errorHandler({dumpExceptions:true,showStack:true}));
 	app.set("db-uri","mongodb://localhost/aprovador");
 	
 });
+
+
 
 app.configure("production",function(){
 	app.use(express.errorHandler());
