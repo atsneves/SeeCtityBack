@@ -549,6 +549,8 @@ app.post("/listaCrime",function(req,res,next){
 		if(!err)
 		{
 			res.json(listaCrime);
+			
+			
 		}
 		else
 		{
@@ -557,7 +559,18 @@ app.post("/listaCrime",function(req,res,next){
 	});
 	
 });
-
+app.get("/countCommentByCrime/:cr",function(req,res,next){
+	
+	DbComentario.count({crime:req.param.cr},function(er,co){
+		if(!er)
+			res.json(co);
+		else
+			res.json(er);
+		
+		
+	});
+	
+});
 app.post("/addComent",function(req,res,next){
 	
 	if(req.body.crime)
