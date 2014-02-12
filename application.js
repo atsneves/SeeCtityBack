@@ -12,7 +12,7 @@ var datejs = require('safe_datejs');
 var tLog = database.LogErro;
 var DbDevice = database.Device;
 
-var DbComentario = databease.Comentario;
+var DbComentario = database.Comentario;
 var DbCrime = database.Crime;
 var mongoose = require("mongoose");
 

@@ -9,7 +9,7 @@ var TABLE_CADASTRO = "Cadastro";
 var TABLE_DEVICE = "Device";
 var TABLE_LOG_EROO = "Erro";
 var TABLE_CRIME = "Crime";
-var TABLE_COMMENT = "Comentario";
+var TABLE_COMENT = "Comentario";
 
 
 
@@ -48,7 +48,7 @@ var CrimeSchema = new Schema ({
 	agradecimento: {type:Number, default:0}
 });
 
-var ComentarioSchema = new Schema ({
+var ComentSchema = new Schema ({
 	usuario:{type: String, required: true},
 	data: {type: Date,default: Date.now},
 	comentario: {type: String, required:true},
@@ -65,8 +65,8 @@ var LogErroSchema = new Schema ({
 mongoose.model(TABLE_LOG_EROO, LogErroSchema);
 exports.LogErro = mongoose.model(TABLE_LOG_EROO);
 
-mongoose.model(TABLE_COMMENT, ComentarioSchema);
-exports.Comentario = mongoose.model(ComentarioSchema);
+mongoose.model(TABLE_COMENT, ComentSchema);
+exports.Comentario = mongoose.model(TABLE_COMENT);
 
 
 mongoose.model(TABLE_CADASTRO, CadastroSchema);
