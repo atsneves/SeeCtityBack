@@ -622,10 +622,12 @@ app.post("/addAgradecer",function(req,res,next){
 	if(req.body.crime)
 	{
 		DbCrime.findOne({_id : req.body.crime}, function(err, crime){
-			
+			console.log(crime);
 			if(!err)
 			{
-				crime.agradecer = crime.agradecer + 1;
+				console.log(crime.agradecimento);
+				crime.agradecimento = crime.agradecimento + 1;
+				
 				crime.save(function(erro,salvo){
 					if(!erro)
 						res.json(salvo);
