@@ -551,19 +551,19 @@ app.post("/listaCrime",function(req,res,next){
 	
 	var pRadiusInKM = 5;
 	var EARTH_RADIUS = 6371;
-	var geoQuery = {
-
-			localizacao: { 
-
-			$nearSphere: [pCenterLongitude, pCenterLatitude],
-
-			$maxDistance: pRadiusInKM/EARTH_RADIUS
-
-			}
-
-	};
-	
-	DbCrime.find(geoQuery).sort(ordernacao).exec(function (err, listaCrime) {
+//	var geoQuery = {
+//
+//			localizacao: { 
+//
+//			$nearSphere: [pCenterLongitude, pCenterLatitude],
+//
+//			$maxDistance: pRadiusInKM/EARTH_RADIUS
+//
+//			}
+//
+//	};
+//	
+	DbCrime.find().sort(ordernacao).exec(function (err, listaCrime) {
 		if(!err)
 		{
 			res.json(listaCrime);
