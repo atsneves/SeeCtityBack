@@ -604,7 +604,7 @@ app.post("/listComment",function(req,res,next){
 	
 });
 
-app.post("addAgradecer",function(req,res,next){
+app.post("/addAgradecer",function(req,res,next){
 	
 	if(req.body.crime)
 	{
