@@ -621,7 +621,7 @@ app.post("/addAgradecer",function(req,res,next){
 	
 	if(req.body.crime)
 	{
-		DbCrime.findOne({email : req.body.email}, function(err, crime){
+		DbCrime.findOne({_id : req.body.crime}, function(err, crime){
 			
 			if(!err)
 			{
