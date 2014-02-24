@@ -23,7 +23,7 @@ var enumTipoLog = ["ERRO", "NOERRO"];
 var CadastroSchema = new Schema({
 	nome:{type:String,required:true},
 	usuario: {type:String,required:true,unique: true},
-	email: {type:String,required:true,unique: true},
+	email: {type:String,required:true},
 	senha: {type:String,required:true},
 	tipo: {type: String, required: true, enum: enumTipo},
 	situacao: {type: String, required: true, enum: enumSituacao,default:"INATIVO"},
