@@ -664,10 +664,11 @@ app.post("/addAgradecer",function(req,res,next){
 
 app.post("/changePass",function(req,res,next){
 	DbCadastro.findOne({_id : req.body.ident}, function(erre, cadastro) {
-        if (retDatabase) 
+        if (cadastro) 
         {
         	cadastro.senha = req.body.senha;
         	cadastro.save(function(err,retCad){
+        		console.log(retCad);
 				if(!err)
 				{
 					res.json(retCad);
@@ -688,7 +689,7 @@ app.post("/changePass",function(req,res,next){
 
 app.post("/cancelAccount",function(req,res,next){
 	DbCadastro.findOne({_id : req.body.ident}, function(erre, cadastro) {
-        if (retDatabase) 
+        if (cadastro) 
         {
         	cadastro.situacao = "CANCELADO";
         	cadastro.save(function(err,retCad){
