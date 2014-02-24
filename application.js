@@ -128,7 +128,7 @@ app.post("/login",function(req,res,next){
 	if(req.body.isFacebook == "true")
 	{
 		
-		DbCadastro.findOne({email : req.body.email}, function(err, retDatabase) {
+		DbCadastro.findOne({email : req.body.email,situacao:"ATIVO"}, function(err, retDatabase) {
 	        if (retDatabase) 
 	        {
 				res.json(retDatabase)
@@ -145,7 +145,7 @@ app.post("/login",function(req,res,next){
 		
 		if(validator.isEmail(req.body.login))
 		{
-			DbCadastro.findOne({email : req.body.login,senha:req.body.senha}, function(err, retDatabase) {
+			DbCadastro.findOne({email : req.body.login,senha:req.body.senha,situacao:"ATIVO"}, function(err, retDatabase) {
 		        console.log(req.body);
 		        if (retDatabase) 
 		        {
@@ -159,7 +159,7 @@ app.post("/login",function(req,res,next){
 		}
 		else
 		{
-			DbCadastro.findOne({usuario : req.body.login,senha:req.body.senha}, function(err, retDatabase) {
+			DbCadastro.findOne({usuario : req.body.login,senha:req.body.senha,situacao:"ATIVO"}, function(err, retDatabase) {
 		        console.log(req.body);
 		        if (retDatabase) 
 		        {
@@ -661,6 +661,55 @@ app.post("/addAgradecer",function(req,res,next){
 	}
 	
 });
+
+app.post("/changePass",function(req,res,next){
+	DbCadastro.findOne({_id : req.body.ident}, function(erre, cadastro) {
+        if (retDatabase) 
+        {
+        	cadastro.senha = req.body.senha;
+        	cadastro.save(function(err,retCad){
+				if(!err)
+				{
+					res.json(retCad);
+				}
+				else
+				{
+					res.json(err);
+				}
+				
+			});
+        }	
+        else
+        {
+        	res.json(erre);
+        }
+    });
+});
+
+app.post("/cancelAccount",function(req,res,next){
+	DbCadastro.findOne({_id : req.body.ident}, function(erre, cadastro) {
+        if (retDatabase) 
+        {
+        	cadastro.situacao = "CANCELADO";
+        	cadastro.save(function(err,retCad){
+				if(!err)
+				{
+					res.json(retCad);
+				}
+				else
+				{
+					res.json(err);
+				}
+				
+			});
+        }	
+        else
+        {
+        	res.json(erre);
+        }
+    });
+});
+
 
 app.configure("development",function(){
 	app.use(express.errorHandler({dumpExceptions:true,showStack:true}));

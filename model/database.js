@@ -14,7 +14,7 @@ var TABLE_COMENT = "Comentario";
 
 
 var enumTipo = ["ADMIN_GERAL", "USER"];
-var enumSituacao = ["INATIVO", "ATIVO"];
+var enumSituacao = ["INATIVO", "ATIVO","CANCELADO"];
 
 var enumCrime = ["FURTO","ASSALTO","ASSALTOCURSO","ALARME","ATIVIDADE","ACIDENTE","ATENTADOPUDOR","DROGAS","ARROMBAMENTO","SEQUESTRORELAMPAGO","ARRASTAO"];
 
